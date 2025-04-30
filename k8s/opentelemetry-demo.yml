@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: your-dockerhub-username/opentelemetry-demo:latest
+          image: aashaymehta163/opentelemetry-demo:latest
           ports:
             - containerPort: 8080
 
