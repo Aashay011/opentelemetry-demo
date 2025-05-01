@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: aashaymehta163/opentelemetry-demo:latest
+          image: aashaymehta163/opentelemetry-demo2:latest
           ports:
             - containerPort: 8080
 
