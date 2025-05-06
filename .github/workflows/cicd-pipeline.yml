@@ -7,7 +7,7 @@ on:
 
 env:
   REGION: us-east-1
-  CLUSTER_NAME: final-project
+  CLUSTER_NAME: otel-test-cluster
   NAMESPACE: otel-demo
 
 jobs:
