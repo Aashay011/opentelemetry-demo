@@ -31,7 +31,7 @@ jobs:
 
     - name: Deploy OpenTelemetry Demo
       run: |
-        kubectl apply -f ../manifests/opentelemetry-demo.yaml -n $NAMESPACE
+        kubectl apply -f kubernetes/opentelemetry-demo.yaml -n $NAMESPACE
 
   rollback:
     if: failure()
