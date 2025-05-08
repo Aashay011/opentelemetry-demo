@@ -175,17 +175,17 @@ data:
       type: grafana-opensearch-datasource
       uid: webstore-logs
       url: http://opensearch:9200/
-  dashboardproviders.yaml: |
-    apiVersion: 1
-    providers:
-    - disableDeletion: false
-      editable: true
-      folder: ""
-      name: default
-      options:
-        path: /var/lib/grafana/dashboards/default
-      orgId: 1
-      type: file
+  # dashboardproviders.yaml: |
+  #   apiVersion: 1
+  #   providers:
+  #   - disableDeletion: false
+  #     editable: true
+  #     folder: ""
+  #     name: default
+  #     options:
+  #       path: /var/lib/grafana/dashboards/default
+  #     orgId: 1
+  #     type: file
 ---
 # Source: opentelemetry-demo/charts/opensearch/templates/configmap.yaml
 apiVersion: v1
