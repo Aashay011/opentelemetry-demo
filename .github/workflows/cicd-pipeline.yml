@@ -8,7 +8,7 @@ on:
 env:
   REGION: us-east-1
   CLUSTER_NAME: otel-demo
-  NAMESPACE: otel-namespace
+  NAMESPACE: otel-demo
 
 jobs:
   deploy:
