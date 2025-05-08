@@ -42,7 +42,7 @@ jobs:
 
     - name: Tag and push all images to ECR
       run: |
-        services=$(docker compose -f ../../docker-compose.yml config --services)
+        services=$(docker compose -f ./docker-compose.yml config --services)
         for service in $services; do
           IMAGE_NAME="${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}-$service:latest"
           docker tag "$service:latest" "$IMAGE_NAME"
