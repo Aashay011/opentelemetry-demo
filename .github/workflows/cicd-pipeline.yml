@@ -38,7 +38,7 @@ jobs:
 
     - name: Build Docker images using Docker Compose
       run: |
-        docker compose -f ../../docker-compose.yml build
+        docker compose -f ./docker-compose.yml build
 
     - name: (Optional) Scan image with Trivy
       uses: aquasecurity/trivy-action@master
