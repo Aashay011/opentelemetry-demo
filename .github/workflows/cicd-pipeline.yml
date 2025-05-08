@@ -25,9 +25,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.REGION }}
 
-    - name: Set up kubeconfig
-      run: |
-        aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
+    # - name: Set up kubeconfig
+    #   run: |
+    #     aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
 
     - name: Log in to Amazon ECR
       id: login-ecr
