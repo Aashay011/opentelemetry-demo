@@ -40,13 +40,17 @@ jobs:
       run: |
         docker compose -f ./docker-compose.yml build
 
+    - name: Authenticate to ECR
+      run: |
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 306011031134.dkr.ecr.us-east-1.amazonaws.com
+
     - name: Tag and push all images to ECR
       run: |
         services=$(docker compose -f ./docker-compose.yml config --services)
         for service in $services; do
-          IMAGE_NAME="${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}-$service:latest"
-          docker tag "$service:latest" "$IMAGE_NAME"
-          docker push "$IMAGE_NAME"
+          IMAGE_NAME="$service"
+          docker tag $IMAGE_NAME:latest 306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:latest
+          docker push 306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:latest
         done
 
     - name: (Optional) Scan image with Trivy
