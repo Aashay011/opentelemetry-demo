@@ -618,7 +618,7 @@ services:
     logging:
       *logging
 
-  # Flagd UI for configuring the feature flag service
+  # Flagd UI for configuring the feature flag services
   flagd-ui:
     image: flagd-ui:$${{github.run_number}}
     container_name: flagd-ui
