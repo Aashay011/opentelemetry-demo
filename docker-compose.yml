@@ -19,7 +19,7 @@ services:
   # ******************
   # Accounting service
   accounting:
-    image: accounting:${{github.run_number}}
+    image: accounting:$${{github.run_number}}
     container_name: accounting
     build:
       context: ./
@@ -46,7 +46,7 @@ services:
 
   # AdService
   ad:
-    image: ad:${{github.run_number}}
+    image: ad:$${{github.run_number}}
     container_name: ad
     build:
       context: ./
@@ -82,7 +82,7 @@ services:
 
   # Cart service
   cart:
-    image: cart:${{github.run_number}}
+    image: cart:$${{github.run_number}}
     container_name: cart
     build:
       context: ./
@@ -116,7 +116,7 @@ services:
 
   # Checkout service
   checkout:
-    image: checkout:${{github.run_number}}
+    image: checkout:$${{github.run_number}}
     container_name: checkout
     build:
       context: ./
@@ -169,7 +169,7 @@ services:
 
   # Currency service
   currency:
-    image: currency:${{github.run_number}}
+    image: currency:$${{github.run_number}}
     container_name: currency
     build:
       context: ./
@@ -197,7 +197,7 @@ services:
 
   # Email service
   email:
-    image: email:${{github.run_number}}
+    image: email:$${{github.run_number}}
     container_name: email
     build:
       context: ./
@@ -224,7 +224,7 @@ services:
 
   # Fraud Detection service
   fraud-detection:
-    image: fraud-detection:${{github.run_number}}
+    image: fraud-detection:$${{github.run_number}}
     container_name: fraud-detection
     build:
       context: ./
@@ -257,7 +257,7 @@ services:
 
   # Frontend
   frontend:
-    image: frontend:${{github.run_number}}
+    image: frontend:$${{github.run_number}}
     container_name: frontend
     build:
       context: ./
@@ -318,7 +318,7 @@ services:
 
   # Frontend Proxy (Envoy)
   frontend-proxy:
-    image: frontend-proxy:${{github.run_number}}
+    image: frontend-proxy:$${{github.run_number}}
     container_name: frontend-proxy
     build:
       context: ./
@@ -367,7 +367,7 @@ services:
 
   # image-provider
   image-provider:
-    image: image-provider:${{github.run_number}}
+    image: image-provider:$${{github.run_number}}
     container_name: image-provider
     build:
       context: ./
@@ -394,7 +394,7 @@ services:
 
   # Load Generator
   load-generator:
-    image: load-generator:${{github.run_number}}
+    image: load-generator:$${{github.run_number}}
     container_name: load-generator
     build:
       context: ./
@@ -432,7 +432,7 @@ services:
 
   # Payment service
   payment:
-    image: payment:${{github.run_number}}
+    image: payment:$${{github.run_number}}
     container_name: payment
     build:
       context: ./
@@ -463,7 +463,7 @@ services:
 
   # Product Catalog service
   product-catalog:
-    image: product-catalog:${{github.run_number}}
+    image: product-catalog:$${{github.run_number}}
     container_name: product-catalog
     build:
       context: ./
@@ -498,7 +498,7 @@ services:
 
   # Quote service
   quote:
-    image: quote:${{github.run_number}}
+    image: quote:$${{github.run_number}}
     container_name: quote
     build:
       context: ./
@@ -526,7 +526,7 @@ services:
 
   # Recommendation service
   recommendation:
-    image: recommendation:${{github.run_number}}
+    image: recommendation:$${{github.run_number}}
     container_name: recommendation
     build:
       context: ./
@@ -562,7 +562,7 @@ services:
 
   # Shipping service
   shipping:
-    image: shipping:${{github.run_number}}
+    image: shipping:$${{github.run_number}}
     container_name: shipping
     build:
       context: ./
@@ -592,7 +592,7 @@ services:
   # ******************
   # Flagd, feature flagging service
   flagd:
-    image: flagd:${{github.run_number}}
+    image: flagd:$${{github.run_number}}
     container_name: flagd
     deploy:
       resources:
@@ -620,7 +620,7 @@ services:
 
   # Flagd UI for configuring the feature flag service
   flagd-ui:
-    image: flagd-ui:${{github.run_number}}
+    image: flagd-ui:$${{github.run_number}}
     container_name: flagd-ui
     build:
       context: ./
@@ -647,7 +647,7 @@ services:
 
   # Kafka used by Checkout, Accounting, and Fraud Detection services
   kafka:
-    image: kafka:${{github.run_number}}
+    image: kafka:$${{github.run_number}}
     container_name: kafka
     build:
       context: ./
@@ -680,7 +680,7 @@ services:
 
   # Valkey used by Cart service
   valkey-cart:
-    image: valkey-cart:${{github.run_number}}
+    image: valkey-cart:$${{github.run_number}}
     container_name: valkey-cart
     user: valkey
     deploy:
@@ -698,7 +698,7 @@ services:
   # ********************
   # Jaeger
   jaeger:
-    image: jaeger:${{github.run_number}}
+    image: jaeger:$${{github.run_number}}
     container_name: jaeger
     command:
       - "--memory.max-traces=25000"
@@ -720,7 +720,7 @@ services:
 
   # Grafana
   grafana:
-    image: grafana:${{github.run_number}}
+    image: grafana:$${{github.run_number}}
     container_name: grafana
     deploy:
       resources:
@@ -738,7 +738,7 @@ services:
 
   # OpenTelemetry Collector
   otel-collector:
-    image: otel-collector:${{github.run_number}}
+    image: otel-collector:$${{github.run_number}}
     container_name: otel-collector
     deploy:
       resources:
@@ -771,7 +771,7 @@ services:
 
   # Prometheus
   prometheus:
-    image: prometheus:${{github.run_number}}
+    image: prometheus:$${{github.run_number}}
     container_name: prometheus
     command:
       - --web.console.templates=/etc/prometheus/consoles
@@ -796,7 +796,7 @@ services:
 
   # OpenSearch
   opensearch:
-    image: opensearch:${{github.run_number}}
+    image: opensearch:$${{github.run_number}}
     container_name: opensearch
     deploy:
       resources:
