@@ -48,9 +48,10 @@ jobs:
       run: |
         services=$(docker compose -f ./docker-compose.yml config --services)
         for service in $services; do
-          IMAGE_NAME="$service"
-          docker tag $IMAGE_NAME:latest 306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:latest
-          docker push 306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:latest
+          IMAGE_NAME="$service:latest"
+          ecr_tag="306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo-$service:latest"
+          docker tag "$IMAGE_NAME" "$ecr_tag"
+          docker push "$ecr_tag"
         done
 
     - name: (Optional) Scan image with Trivy

@@ -14,6 +14,9 @@ networks:
     driver: bridge
 
 services:
+  flagd:
+  build: .
+  image: flagd:latest
   # ******************
   # Core Demo Services
   # ******************
