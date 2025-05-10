@@ -7,14 +7,6 @@ kind: Namespace
 metadata:
   name: otel-namespace
 ---
-
-
-
-
-
-
-
-
 # Source: opentelemetry-demo/charts/grafana/templates/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -111,7 +103,7 @@ rules:
     resources: ["replicasets"]
     verbs: ["get", "list", "watch"]
 ---
-# Source: opentelemetry-demo/charts/prometheus/templates/clusterrole-arbaaz.yaml
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -198,7 +190,7 @@ subjects:
   name: otel-collector
   namespace: otel-namespace
 ---
-# Source: opentelemetry-demo/charts/prometheus/templates/clusterrolebinding-arbaaz.yaml
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -1373,7 +1365,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: accounting
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-accounting'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:accounting-3' #substituting for the ECR Image URI
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
@@ -1502,7 +1494,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: cart
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-cart'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:cart-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1578,7 +1570,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: checkout
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-checkout'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:checkout-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1663,7 +1655,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: currency
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-currency'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:currency-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1827,7 +1819,7 @@ spec:
             - name: config-rw
               mountPath: /etc/flagd
         - name: flagd-ui
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-flagd-ui'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:flagd-ui-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1973,7 +1965,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frontend
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-frontend'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:frontend-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2063,7 +2055,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: frontend-proxy
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-frontend-proxy'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:frontend-proxy-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2159,7 +2151,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: image-provider
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-image-provider'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:image-provider-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2369,7 +2361,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: payment
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-payment'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:payment-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2437,7 +2429,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: product-catalog
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-product-catalog'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:product-catalog-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2508,7 +2500,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: quote
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-quote'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:quote-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2574,7 +2566,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: recommendation
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-recommendation'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:recommendation-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2644,7 +2636,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: shipping
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-shipping'
+          image: '306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:shipping-3'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -2896,7 +2888,6 @@ data:
   ldap-toml: ""
 ---
 #edited
-# Source: opentelemetry-demo/charts/grafana/templates/deployment-arbaaz.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
