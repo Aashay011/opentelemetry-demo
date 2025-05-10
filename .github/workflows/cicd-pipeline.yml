@@ -49,13 +49,13 @@ jobs:
         aws eks update-kubeconfig --region $REGION --name $CLUSTER_NAME
         
     - name: Deploy OpenTelemetry Demo
+      id: apply
+      continue-on-error: true
       run: |
         kubectl apply -f kubernetes/opentelemetry-demo.yaml -n $NAMESPACE --validate=false
 
-  Rollback:
-    runs-on: ubuntu-latest
-    steps:
     - name: Rollback
+      if: steps.apply.outcome == 'failure'
       run: |
         if ! kubectl apply -f kubernetes/opentelemetry-demo.yaml -n $NAMESPACE; then
           echo "Apply failed. Rolling back to previous version."
