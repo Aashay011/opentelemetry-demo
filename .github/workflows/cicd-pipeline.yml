@@ -52,6 +52,9 @@ jobs:
       run: |
         kubectl apply -f kubernetes/opentelemetry-demo.yaml -n $NAMESPACE --validate=false
 
+deploy:
+  runs-on: ubuntu-latest
+  steps:
     - name: Rollback
       run: |
         if ! kubectl apply -f kubernetes/opentelemetry-demo.yaml -n $NAMESPACE; then
