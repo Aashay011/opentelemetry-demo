@@ -1428,7 +1428,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: ad
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-ad'
+          image: 'gh.io/open-telemetry/demo:2.0.2-ad'
           imagePullPolicy: IfNotPresent
           ports:
             
