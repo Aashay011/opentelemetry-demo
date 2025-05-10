@@ -19,7 +19,7 @@ services:
   # ******************
   # Accounting service
   accounting:
-    image: ${IMAGE_NAME}:accounting:${build}
+    image: ${IMAGE_NAME}:accounting-${build}
     container_name: accounting
     build:
       context: ./
