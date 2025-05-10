@@ -29,20 +29,20 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
 
-    # - name: Set up Docker Buildx
-    #   uses: docker/setup-buildx-action@v3
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
-    # - name: Build Docker images using Docker Compose
-    #   run: |
-    #     docker compose -f ./docker-compose.yml build
+    - name: Build Docker images using Docker Compose
+      run: |
+        docker compose -f ./docker-compose.yml build
 
-    # - name: Authenticate to ECR
-    #   run: |
-    #     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 306011031134.dkr.ecr.us-east-1.amazonaws.com
+    - name: Authenticate to ECR
+      run: |
+        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 306011031134.dkr.ecr.us-east-1.amazonaws.com
 
-    # - name: Push all images to ECR
-    #   run: |
-    #     docker compose push
+    - name: Push all images to ECR
+      run: |
+        docker compose push
 
     - name: Set up kubeconfig
       run: |
