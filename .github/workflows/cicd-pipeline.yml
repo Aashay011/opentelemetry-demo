@@ -44,15 +44,9 @@ jobs:
       run: |
         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 306011031134.dkr.ecr.us-east-1.amazonaws.com
 
-    - name: Tag and push all images to ECR
+    - name: Push all images to ECR
       run: |
-        services=$(docker compose -f ./docker-compose.yml config --services)
-        for service in $services; do
-          IMAGE_NAME="${service}:1"
-          ecr_tag="306011031134.dkr.ecr.us-east-1.amazonaws.com/otel-demo/otel-demo:latest"
-          docker tag "$IMAGE_NAME" "$ecr_tag"  
-          docker push "$ecr_tag"
-        done
+        docker compose push
 
     - name: (Optional) Scan image with Trivy
       uses: aquasecurity/trivy-action@master

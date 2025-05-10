@@ -1373,7 +1373,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: accounting
-          image: 'ghcr.io/open-telemetry/demo:2.0.2-accounting:${{github.run_number}}'
+          image: 'ghcr.io/open-telemetry/demo:2.0.2-accounting'
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
