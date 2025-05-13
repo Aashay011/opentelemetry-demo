@@ -36,6 +36,16 @@ jobs:
       run: |
         docker compose -f ./docker-compose.yml build
 
+    - name: Scan all Docker Compose images using Trivy
+      run: |
+        echo "Extracting image names"
+        images=$(docker compose -f ./docker-compose.yml config | grep 'image:' | awk '{print $2}')
+ 
+        for image in $images; do
+          echo "Scanning image"
+          trivy image --exit-code 1 --severity HIGH,CRITICAL "$image"
+        done
+
     - name: Authenticate to ECR
       run: |
         aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 306011031134.dkr.ecr.us-east-1.amazonaws.com
